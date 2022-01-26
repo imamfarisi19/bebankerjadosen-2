@@ -13,7 +13,7 @@ class penunjangController extends Controller
      */
     public function index()
     {
-        //
+        return view('Tabel.penunjang');
     }
 
     /**
