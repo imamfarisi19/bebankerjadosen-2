@@ -24,15 +24,15 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="biodata" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fa fa-user"></i>
                         <p>
                             Biodata
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nfa fa-userav-item">
                     <a href="pengajaran" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fa fa-university"></i>
                         <p>
                             Pengajaran
                         </p>
@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fa fa-flask"></i>
                         <p>
                             Penelitian
                         </p>
@@ -48,7 +48,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fa fa-users"></i>
                         <p>
                             Pengabdian
                         </p>
@@ -56,7 +56,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="penunjang" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fa fa-plus"></i>
                         <p>
                             Penunjang
                         </p>
@@ -64,9 +64,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fa fa-print"></i>
                         <p>
                             Cetak
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('logout')}}" class="nav-link">
+                        <i class="nav-icon fa fa-times"></i>
+                        <p>
+                            Logout
                         </p>
                     </a>
                 </li>
