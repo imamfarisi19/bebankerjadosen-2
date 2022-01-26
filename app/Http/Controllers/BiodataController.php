@@ -13,7 +13,7 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        //
+        return view('Tabel.biodata');
     }
 
     /**
