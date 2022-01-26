@@ -13,7 +13,7 @@ class PengajaranController extends Controller
      */
     public function index()
     {
-        //
+        return view('Tabel.pengajaran');
     }
 
     /**
