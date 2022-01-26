@@ -30,7 +30,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nfa fa-userav-item">
+                <li class="nav-item">
                     <a href="pengajaran" class="nav-link">
                         <i class="nav-icon fa fa-university"></i>
                         <p>
