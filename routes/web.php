@@ -26,4 +26,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 
 route::group(['middleware' => ['auth']], function () {
     route::get('/beranda', 'BerandaController@index');
+    route::get('/biodata', 'BiodataController@index');
+    route::get('/pengajaran', 'PengajaranController@index');
+    route::get('/penunjang', 'PenunjangController@index');
 });
