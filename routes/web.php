@@ -17,10 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/beranda', 'BerandaController@index');
-
 Route::get('/login', function () {
     return view('Pengguna.login');
-});
+})->name('login');
 
 Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+Route::get('/logout', 'LoginController@logout')->name('logout');
+
+route::group(['middleware' => ['auth']], function () {
+    route::get('/beranda', 'BerandaController@index');
+});
