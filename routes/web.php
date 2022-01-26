@@ -24,9 +24,13 @@ Route::get('/login', function () {
 Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
-route::group(['middleware' => ['auth']], function () {
-    route::get('/beranda', 'BerandaController@index');
-    route::get('/biodata', 'BiodataController@index');
-    route::get('/pengajaran', 'PengajaranController@index');
-    route::get('/penunjang', 'PenunjangController@index');
+Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
+    route::get('/register', 'BerandaController@register')->name('register');
+});
+
+Route::group(['middleware' => ['auth', 'ceklevel:Admin,User']], function(){
+    route::get('/beranda', 'BerandaController@index')->name('beranda');
+    route::get('/biodata', 'BerandaController@biodata')->name('biodata');
+    route::get('/pengajaran', 'BerandaController@pengajaran')->name('pengajaran');
+    route::get('/penunjang', 'BerandaController@penunjang')->name('penunjang');   
 });
