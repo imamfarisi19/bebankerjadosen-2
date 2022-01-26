@@ -13,7 +13,7 @@
                 <img src="{{asset('AdminLTE/dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">USERNAME</a>
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
 
@@ -30,6 +30,16 @@
                         </p>
                     </a>
                 </li>
+                @if (auth()->user()=="Admin")
+                <li class="nav-item">
+                    <a href="{{route('register')}}" class="nav-link">
+                        <i class="nav-icon fa fa-users"></i>
+                        <p>
+                            Register
+                        </p>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="pengajaran" class="nav-link">
                         <i class="nav-icon fa fa-university"></i>
