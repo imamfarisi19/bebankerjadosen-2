@@ -30,12 +30,12 @@
                         </p>
                     </a>
                 </li>
-                @if (auth()->user()=="Admin")
+                @if (auth()->user()->level=="Admin")
                 <li class="nav-item">
-                    <a href="{{route('register')}}" class="nav-link">
+                    <a href="daftar" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>
-                            Register
+                            daftar
                         </p>
                     </a>
                 </li>
