@@ -21,9 +21,9 @@ class BerandaController extends Controller
         return view('Tabel.biodata');
     }
 
-    public function register()
+    public function daftar()
     {
-        return view('AdminRegistration.register');
+        return view('AdminRegistration.daftar');
     }
     
     public function pengajaran()
