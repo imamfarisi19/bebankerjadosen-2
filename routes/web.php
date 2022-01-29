@@ -25,7 +25,7 @@ Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
-    route::get('/register', 'BerandaController@register')->name('register');
+    route::get('/daftar', 'BerandaController@daftar')->name('daftar');
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin,User']], function(){
