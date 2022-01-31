@@ -36,127 +36,50 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td> 4</td>
-                                                <td>X</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 5.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td>5</td>
-                                                <td>C</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 5.5
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td>5.5</td>
-                                                <td>A</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with default features</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td> 4</td>
-                                                <td>X</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 5.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td>5</td>
-                                                <td>C</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Other browsers</td>
-                                                <td>All others</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>U</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
+                <div class="card card-info card-outline">
+                    <div class="card-header">
+                        <div class="card-tools">
+                            <a href="{{ route('create-biodata') }}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
+
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Depan</th>
+                                    <th>Nama Belakang</th>
+                                    <th>Email</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>NIDN</th>
+                                    <th>NIP</th>
+                                    <th>Gelar Depan</th>
+                                    <th>Gelar Belakang</th>
+                                    <th>Jabatan Fungsional</th>
+                                    <th>Golongan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                @foreach ($dtDosen as $item)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->namaDepan}}</td>
+                                    <td>{{$item->namaBelakang}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>{{date('d-m-Y', strtotime($item->tanggalLahir))}}</td>
+                                    <td>{{$item->NIDN}}</td>
+                                    <td>{{$item->NIP}}</td>
+                                    <td>{{$item->gelarDepan}}</td>
+                                    <td>{{$item->gelarBelakang}}</td>
+                                    <td>{{$item->jabatanFungsional}}</td>
+                                    <td>{{$item->golongan}}</td>
+                                    <td>
+                                        <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                        </table>
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
             </section>
             <!-- /.content -->
         </div>
@@ -180,6 +103,8 @@
     <!-- AdminLTE for demo purposes -->
     <!-- Page specific script -->
     @include('Template.tableScript')
+
+    @include('sweetalert::alert')
 </body>
 
 </html>

@@ -30,7 +30,13 @@ Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin,User']], function(){
     route::get('/beranda', 'BerandaController@index')->name('beranda');
-    route::get('/biodata', 'BerandaController@biodata')->name('biodata');
+    route::get('/biodata', 'BiodataController@index')->name('biodata');
     route::get('/pengajaran', 'BerandaController@pengajaran')->name('pengajaran');
-    route::get('/penunjang', 'BerandaController@penunjang')->name('penunjang');   
+    route::get('/penunjang', 'BerandaController@penunjang')->name('penunjang');
+
+    route::get('/create-biodata', 'BiodataController@create')->name('create-biodata');
+    route::post('/simpan-biodata', 'BiodataController@store')->name('simpan-biodata');
+    route::get('/edit-biodata/{id}', 'BiodataController@edit')->name('edit-biodata');
+    route::post('/update-biodata/{id}', 'BiodataController@update')->name('update-biodata');
+    
 });
