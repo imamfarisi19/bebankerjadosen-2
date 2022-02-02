@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Biodata | Beban Kerja Dosen</title>
+    <title>Penunjang | Beban Kerja Dosen</title>
 
     @include('Template.tableHead')
 </head>
@@ -27,7 +27,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Biodata</h1>
+                            <h1>Penunjang</h1>
                         </div>
                     </div>
                 </div>
@@ -38,63 +38,48 @@
             <section class="content">
                 <div class="card card-info card-outline">
                     <div class="card-header">
-                        <h3>Masukan Biodata Dosen</h3>
+                        <h3>Edit Penunjang Dosen</h3>
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('simpan-biodata')}}" method="post">
+                        <form action="{{ url('update-biodata',$dos->id)}}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <label for="namaDepan">Nama Depan</label>
-                                <input type="text" id="namaDepan" name="namaDepan" class="form-control" placeholder="Nama Depan">
+                                <input type="text" id="namaDepan" name="namaDepan" class="form-control" placeholder="Nama Depan" value="{{ $dos->namaDepan }}">
                             </div>
                             <div class="form-group">
-                                <label for="namaBelakang">Nama Belakang</label>
-                                <input type="text" id="namaBelakang" name="namaBelakang" class="form-control" placeholder="Nama Belakang">
+                                <input type="text" id="namaBelakang" name="namaBelakang" class="form-control" placeholder="Nama Belakang" value="{{ $dos->namaBelakang }}">
                             </div>
                             <div class="form-group">
-                                <label for="email">email</label>
-                                <input type="text" id="email" name="email" class="form-control" placeholder="email">
+                                <input type="text" id="email" name="email" class="form-control" placeholder="email" value="{{ $dos->email}}">
                             </div>
                             <div class="form-group">
-                                <label for="jabatan">jabatan</label>
-                                <input type="text" id="jabatan" name="jabatan" class="form-control" placeholder="Jabatan">
+                                <input type="text" id="jabatan" name="jabatan" class="form-control" placeholder="Jabatan" value="{{ $dos->jabatan}}">
                             </div>
                             <div class="form-group">
-                                <label for="tanggalLahir">Tanggal Lahir</label>
-                                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control">
+                                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" value="{{ $dos->tanggalLahir}}">
                             </div>
                             <div class="form-group">
-                                <label for="NIDN">NIDN</label>
-                                <input type="text" id="NIDN" name="NIDN" class="form-control" placeholder="NIDN">
+                                <input type="text" id="NIDN" name="NIDN" class="form-control" placeholder="NIDN" value="{{ $dos->NIDN}}">
                             </div>
                             <div class="form-group">
-                                <label for="NIP">NIP</label>
-                                <input type="text" id="NIP" name="NIP" class="form-control" placeholder="NIP">
+                                <input type="text" id="NIP" name="NIP" class="form-control" placeholder="NIP" value="{{ $dos->NIP}}">
                             </div>
                             <div class="form-group">
-                                <label for="gelarDepan">Gelar Depan</label>
-                                <input type="text" id="gelarDepan" name="gelarDepan" class="form-control" placeholder="Gelar Depan">
+                                <input type="text" id="gelarDepan" name="gelarDepan" class="form-control" placeholder="Gelar Depan" value="{{ $dos->gelarDepan}}">
                             </div>
                             <div class="form-group">
-                                <label for="gelarBelakang">Gelar Belakang</label>
-                                <input type="text" id="gelarBelakang" name="gelarBelakang" class="form-control" placeholder="gelarBelakang">
+                                <input type="text" id="gelarBelakang" name="gelarBelakang" class="form-control" placeholder="gelarBelakang" value="{{ $dos->gelarBelakang}}">
                             </div>
                             <div class="form-group">
-                                <label for="jabatanFungsional_id">Jabatan Fungsional</label>
-                                <select class="form-control seelct2" style="width: 100%" name="jabatanFungsional_id" id="jabatanFungsional_id">
-                                    <option disabled value>Pilih Jabatan Fungsional</option>
-                                    @foreach ($jabFung as $item)
-                                    <option value="{{$item->id}}">{{$item->jenis}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" id="jabatanFungsional" name="jabatanFungsional" class="form-control" placeholder="jabatanFungsional" value="{{ $dos->jabatanFungsional}}">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan">
+                                <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan" value="{{ $dos->golongan}}">
                             </div>
                             
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Simpan Data</button>
+                                <button type="submit" class="btn btn-primary">Ubah Data</button>
                             </div>
                         </form>
                     </div>

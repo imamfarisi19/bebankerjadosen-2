@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dosen extends Model
 {
-    protected $table = "dosens";
+    protected $table = "dosen";
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
@@ -20,7 +20,22 @@ class Dosen extends Model
                             'NIP',
                             'gelarDepan',   
                             'gelarBelakang',
-                            'jabatanFungsional',
-                            'golongan',
+                            'jabatanFungsional_id',
+                            'golongan'
                             ];
+
+    public function kegiatan()
+    {
+        return $this->belongsTo(Kegiatan::class);
+    }
+
+    public function jabfung()
+    {
+        return $this->belongsTo(Jabatanfungsional::class, 'jabatanFungsional_id', 'id');
+    }
+
+    public function users()
+    {
+        return $this->hasOne(User::class);
+    }
 }

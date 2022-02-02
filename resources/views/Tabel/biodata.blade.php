@@ -35,7 +35,7 @@
             </section>
 
             <!-- Main content -->
-            <section class="content">
+            <div class="content">
                 <div class="card card-info card-outline">
                     <div class="card-header">
                         <div class="card-tools">
@@ -45,42 +45,39 @@
 
                     <div class="card-body">
                         <table class="table table-bordered">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nama Depan</th>
-                                    <th>Nama Belakang</th>
-                                    <th>Email</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>NIDN</th>
-                                    <th>NIP</th>
-                                    <th>Gelar Depan</th>
-                                    <th>Gelar Belakang</th>
-                                    <th>Jabatan Fungsional</th>
-                                    <th>Golongan</th>
-                                    <th>Aksi</th>
-                                </tr>
-                                @foreach ($dtDosen as $item)
-                                <tr>
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$item->namaDepan}}</td>
-                                    <td>{{$item->namaBelakang}}</td>
-                                    <td>{{$item->email}}</td>
-                                    <td>{{date('d-m-Y', strtotime($item->tanggalLahir))}}</td>
-                                    <td>{{$item->NIDN}}</td>
-                                    <td>{{$item->NIP}}</td>
-                                    <td>{{$item->gelarDepan}}</td>
-                                    <td>{{$item->gelarBelakang}}</td>
-                                    <td>{{$item->jabatanFungsional}}</td>
-                                    <td>{{$item->golongan}}</td>
-                                    <td>
-                                        <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-trash-alt" style="color:red"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Depan</th>
+                                <th>Email</th>
+                                <th>NIDN</th>
+                                <th>NIP</th>
+                                <th>Gelar Depan</th>
+                                <th>Gelar Belakang</th>
+                                <th>Aksi</th>
+                            </tr>
+                            @foreach ($dtDosen as $item)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->namaDepan}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->NIDN}}</td>
+                                <td>{{$item->NIP}}</td>
+                                <td>{{$item->gelarDepan}}</td>
+                                <td>{{$item->gelarBelakang}}</td>
+                                <td>
+                                    <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    |
+                                    <a href="{{ url('delete-biodata', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
                         </table>
                     </div>
+                    <div class="card-footer">
+                        {{ $dtDosen->links() }}
+                    </div>
                 </div>
-            </section>
+            </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

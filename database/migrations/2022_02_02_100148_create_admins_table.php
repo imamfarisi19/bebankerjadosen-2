@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDosensTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,13 @@ class CreateDosensTable extends Migration
      */
     public function up()
     {
-        Schema::create('dosen', function (Blueprint $table) {
+        Schema::create('admin', function (Blueprint $table) {
             $table->id();
             $table->string('namaDepan', 20);
-            $table->string('namaBelakang', 20); 
+            $table->string('namaBelakang', 20);
             $table->string('email', 30);
             $table->string('jabatan', 20)->nullable();
             $table->date('tanggalLahir');
-            $table->string('NIDN', 15);
-            $table->string('NIP', 15);
-            $table->string('gelarDepan')->nullable();
-            $table->string('gelarBelakang', 20);
-            $table->bigInteger('jabatanFungsional_id')->index()->nullable();
-            $table->string('golongan', 11);
             $table->timestamps();
         });
     }
@@ -37,6 +31,6 @@ class CreateDosensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosen');
+        Schema::dropIfExists('admin');
     }
 }

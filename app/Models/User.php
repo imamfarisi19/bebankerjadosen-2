@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'level',
         'email',
-        'password',
+        'password'
     ];
 
     /**
@@ -42,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected function Dosen()
+    {
+        return $this->BelongsTo(Dosen::class);
+    }
+
+    protected function admin()
+    {
+        return $this->BelongsTo(Admin::class);
+    }
 }

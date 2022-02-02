@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dosen;
+use App\Models\Jabatanfungsional;
 
 class BiodataController extends Controller
 {
@@ -14,18 +15,19 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        $dtDosen = Dosen::all();
+        $dtDosen = Dosen::with('jabfung')->latest()->paginate(10);
         return view('Tabel.biodata', compact('dtDosen'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('TabelInput.create-biodata');
+        $jabFung = Jabatanfungsional::all();
+        return view('TabelInput.create-biodata', compact('jabFung'));
     }
 
     /**
@@ -38,7 +40,6 @@ class BiodataController extends Controller
     {
         //dd($request->all());
         Dosen::create([
-            'id' => $request->id,
             'namaDepan' => $request->namaDepan,
             'namaBelakang' => $request->namaBelakang, 
             'email' => $request->email, 
@@ -48,7 +49,7 @@ class BiodataController extends Controller
             'NIP' => $request->NIP, 
             'gelarDepan' => $request->gelarDepan,
             'gelarBelakang' => $request->gelarBelakang,
-            'jabatanFungsional' => $request->jabatanFungsional,
+            'jabatanFungsional_id' => $request->jabatanFungsional_id,
             'golongan' => $request->golongan,
             
         ]);
@@ -75,8 +76,10 @@ class BiodataController extends Controller
      */
     public function edit($id)
     {
-        $dos = Dosen::findorfail($id);
-        return view('TabelInput.edit-biodata', compact('dos'));
+        $jabFung = Jabatanfungsional::all();
+        $dos = Dosen::with('jabfung')->findorfail($id);
+
+        return view('TabelInput.edit-biodata', compact('dos','jabFung'));
     }
 
     /**
@@ -90,6 +93,7 @@ class BiodataController extends Controller
     {
         $dos = Dosen::findorfail($id);
         $dos->update($request->all());
+
         return redirect('biodata')->with('toast_success', 'Data berhasil diperbarui');
     }
 
@@ -101,6 +105,9 @@ class BiodataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dos = Dosen::findorfail($id);
+        $dos->delete();
+
+        return back()->with('toast_info', 'Data Berhasil Dihapus!');
     }
-}
+} 
