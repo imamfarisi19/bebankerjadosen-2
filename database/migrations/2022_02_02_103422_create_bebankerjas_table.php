@@ -15,7 +15,7 @@ class CreateBebankerjasTable extends Migration
     {
         Schema::create('bebankerja', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idKegiatan')->index();
+            $table->bigInteger('masaPenugasan_id');
             $table->string('buktiPenugasan');
             $table->bigInteger('sks');
             $table->timestamps();

@@ -21,12 +21,13 @@ class Dosen extends Model
                             'gelarDepan',   
                             'gelarBelakang',
                             'jabatanFungsional_id',
+                            'kegiatan_id',
                             'golongan'
                             ];
 
     public function kegiatan()
     {
-        return $this->belongsTo(Kegiatan::class);
+        return $this->belongsTo(Kegiatan::class,'kegiatan_id','id');
     }
 
     public function jabfung()

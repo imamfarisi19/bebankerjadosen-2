@@ -15,7 +15,6 @@ class CreateRekomendasisTable extends Migration
     {
         Schema::create('rekomendasi', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idKinerja')->index();
             $table->text('keterangan', 255);
             $table->timestamps();
         });

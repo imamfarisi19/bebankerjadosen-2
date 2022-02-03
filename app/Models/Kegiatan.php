@@ -11,13 +11,18 @@ class Kegiatan extends Model
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
-                            'idDosen',
                             'keterangan',
-                            'jenis'
+                            'jenis', 
+                            'bebanKerja_id'
                             ];
     
     public function dosen()
     {
         return $this->hasMany(Dosen::class);
+    }
+
+    public function bebanKerja()
+    {
+        return $this->belongsTo(Bebankerja::class,'bebanKerja_id','id');
     }
 }

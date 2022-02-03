@@ -11,7 +11,7 @@ class Kinerja extends Model
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
-                            'idMasaPenugasan',
+                            'rekomendasi_id',
                             'buktiDokumen', 
                             'sks'
                             ];
@@ -19,5 +19,10 @@ class Kinerja extends Model
     public function masaPenugasan()
     {
         return $this->hasMany(Masapenugasan::class);
+    }
+
+    public function rekomendasi()
+    {
+        return $this->belongsTo(Rekomendasi::class,'rekomendasi_id','id');
     }
 }

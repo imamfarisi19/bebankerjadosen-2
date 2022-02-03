@@ -15,7 +15,7 @@ class CreateKegiatansTable extends Migration
     {
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idDosen')->index();
+            $table->bigInteger('bebanKerja_id');
             $table->text('keterangan', 255);
             $table->string('jenis', 50);
             $table->timestamps();

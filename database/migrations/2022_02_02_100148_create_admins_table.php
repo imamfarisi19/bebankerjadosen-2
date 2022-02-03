@@ -18,7 +18,7 @@ class CreateAdminsTable extends Migration
             $table->string('namaDepan', 20);
             $table->string('namaBelakang', 20);
             $table->string('email', 30);
-            $table->string('jabatan', 20)->nullable();
+            $table->string('jabatan', 20);
             $table->date('tanggalLahir');
             $table->timestamps();
         });

@@ -42,42 +42,29 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('simpan-biodata')}}" method="post">
+                        <form action="{{route('simpan-pengajaran')}}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <input type="text" id="namaDepan" name="namaDepan" class="form-control" placeholder="Nama Depan">
+                                <input type="text" id="jenis" name="jenis" class="form-control" placeholder="Nama Depan">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="namaBelakang" name="namaBelakang" class="form-control" placeholder="Nama Belakang">
+                                <input type="text" id="buktiPenugasan" name="buktiPenugasan" class="form-control" placeholder="Nama Belakang">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="email" name="email" class="form-control" placeholder="email">
+                                <input type="text" id="sks" name="sks" class="form-control" placeholder="email">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="jabatan" name="jabatan" class="form-control" placeholder="Jabatan">
+                                <input type="text" id="masaPenugasan" name="masaPenugasan" class="form-control" placeholder="Jabatan">
                             </div>
                             <div class="form-group">
-                                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control">
+                                <input type="text" id="buktiDokumen" name="buktiDokumen" class="form-control" placeholder="buktiDokumen">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="NIDN" name="NIDN" class="form-control" placeholder="NIDN">
+                                <input type="text" id="sks" name="sks" class="form-control" placeholder="NIDN">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="NIP" name="NIP" class="form-control" placeholder="NIP">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="gelarDepan" name="gelarDepan" class="form-control" placeholder="Gelar Depan">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="gelarBelakang" name="gelarBelakang" class="form-control" placeholder="gelarBelakang">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="jabatanFungsional" name="jabatanFungsional" class="form-control" placeholder="jabatanFungsional">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan">
-                            </div>
-                            
+                                <input type="text" id="rekomendasi" name="rekomendasi" class="form-control" placeholder="NIP">
+                            </div>                         
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Simpan Data</button>
                             </div>

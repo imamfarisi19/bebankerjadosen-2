@@ -15,7 +15,7 @@ class CreateKinerjasTable extends Migration
     {
         Schema::create('kinerja', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idMasaPenugasan')->index();
+            $table->bigInteger('rekomendasi_id');
             $table->string('buktiDokumen');
             $table->bigInteger('sks');
             $table->timestamps();

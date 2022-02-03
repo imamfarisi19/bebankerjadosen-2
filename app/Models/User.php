@@ -45,11 +45,11 @@ class User extends Authenticatable
 
     protected function Dosen()
     {
-        return $this->BelongsTo(Dosen::class);
+        return $this->BelongsTo(Dosen::class,'dosen_id','id');
     }
 
     protected function admin()
     {
-        return $this->BelongsTo(Admin::class);
+        return $this->BelongsTo(Admin::class,'admin_id','id');
     }
 }

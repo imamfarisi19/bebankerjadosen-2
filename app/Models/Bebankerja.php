@@ -11,7 +11,7 @@ class Bebankerja extends Model
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
-                            'idKegiatan',
+                            'masaPenugasan_id',
                             'buktiPenugasan', 
                             'sks'
                             ];
@@ -19,5 +19,10 @@ class Bebankerja extends Model
     public function kegiatan()
     {
         return $this->hasMany(Kegiatan::class);
+    }
+
+    public function masaPenugasan()
+    {
+        return $this->belongsTo(Masapenugasan::class,'masaPenugasan_id');
     }
 }

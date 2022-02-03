@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dosen;
 use App\Models\kegiatan;
-use App\Models\beban_kerja;
-use App\Models\masa_penugasan;
-use App\Models\kinerja;
-use App\Models\rekomendasi;
+use App\Models\Bebankerja;
+use App\Models\Masapenugasan;
+use App\Models\Kinerja;
+use App\Models\Rekomendasi;
 
 class PengajaranController extends Controller
 {
@@ -19,7 +19,7 @@ class PengajaranController extends Controller
      */
     public function index()
     {
-        $dtPengajaran = Dosen::with('kegiatan', 'beban_kerja', 'masa_penugasan', 'kinerja', 'rekomendasi')->paginate(10);
+        $dtPengajaran = Dosen::with('kegiatan')->paginate(10);
         return view('Tabel.pengajaran', compact('dtPengajaran'));
     }
 
@@ -30,7 +30,8 @@ class PengajaranController extends Controller
      */
     public function create()
     {
-        //
+        $dtPeng = Kegiatan::with('bebanKerja')->paginate(10);
+        return view('TabelInput.create-pengajaran', compact('dtPeng'));
     }
 
     /**
@@ -41,7 +42,16 @@ class PengajaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kegiatan::create([
+            'jenis' => $request->jenis,
+            'buktiPenugasan' => $request->buktiPenugasan, 
+            'sks' => $request->sks, 
+            'masaPenugasan' => $request->masaPenugasan, 
+            'buktiDokumen' => $request->buktiDokumen,
+            'sks' => $request->sks,
+            'rekomendasi' => $request->rekomendasi
+
+        ]);
     }
 
     /**

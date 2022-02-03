@@ -17,4 +17,9 @@ class Admin extends Model
                             'jabatan',
                             'tanggalLahir'
                             ];
+
+    public function users()
+    {
+        return $this->hasOne(User::class);
+    }
 }
