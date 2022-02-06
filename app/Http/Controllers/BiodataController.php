@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dosen;
 use App\Models\Jabatanfungsional;
+use App\Models\Admin;
+use App\Models\User;
 
 class BiodataController extends Controller
 {
@@ -15,8 +17,10 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        $dtDosen = Dosen::with('jabfung')->latest()->paginate(10);
-        return view('Tabel.biodata', compact('dtDosen'));
+        $dtUser = User::with('admin')->latest()->paginate(1);
+        $dtAdmin = Admin::all();
+        $dtDosen = Dosen::with('jabfung')->latest()->paginate(1);
+        return view('Tabel.biodata', compact('dtDosen', 'dtAdmin', 'dtUser'));
     }
 
     /**

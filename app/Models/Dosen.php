@@ -13,7 +13,7 @@ class Dosen extends Model
                             'id',
                             'namaDepan',
                             'namaBelakang', 
-                            'email', 
+                            'email_user', 
                             'jabatan',
                             'tanggalLahir',
                             'NIDN',
@@ -21,22 +21,26 @@ class Dosen extends Model
                             'gelarDepan',   
                             'gelarBelakang',
                             'jabatanFungsional_id',
-                            'kegiatan_id',
                             'golongan'
                             ];
-
-    public function kegiatan()
-    {
-        return $this->belongsTo(Kegiatan::class,'kegiatan_id','id');
-    }
 
     public function jabfung()
     {
         return $this->belongsTo(Jabatanfungsional::class, 'jabatanFungsional_id', 'id');
     }
 
-    public function users()
+    public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasMany(User::class);
+    }
+
+    public function kegiatan()
+    {
+        return $this->belongsToMany(Kegiatan::class);
+    }
+
+    public function pengajaran()
+    {
+        return $this->hasMany(Kegiatan::class);
     }
 }

@@ -11,18 +11,37 @@ class Kegiatan extends Model
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
-                            'keterangan',
-                            'jenis', 
-                            'bebanKerja_id'
+                            'jenis'
                             ];
-    
-    public function dosen()
+
+    public function pengajaran()
     {
-        return $this->hasMany(Dosen::class);
+        return $this->hasMany(Pengajaran::class);
     }
 
-    public function bebanKerja()
-    {
-        return $this->belongsTo(Bebankerja::class,'bebanKerja_id','id');
-    }
+
+    // public function dosen()
+    // {
+    //     return $this->belongsToMany(dosenkegiatan::class,'dosen_id','id');
+    // }
+
+    // public function bebanKerja()
+    // {
+    //     return $this->belongsTo(Bebankerja::class,'bebanKerja_id','id');
+    // }
+
+    // public function masaPenugasan()
+    // {
+    //     return $this->belongsTo(Masapenugasan::class,'masaPenugasan_id','id');
+    // }
+
+    // public function kinerja()
+    // {
+    //     return $this->belongsTo(Kinerja::class,'kinerja_id','id');
+    // }
+
+    // public function rekomendasi()
+    // {
+    //     return $this->belongsTo(Rekomendasi::class,'rekomendasi_id','id');
+    // }
 }

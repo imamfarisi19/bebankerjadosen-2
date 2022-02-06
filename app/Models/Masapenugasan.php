@@ -11,17 +11,11 @@ class Masapenugasan extends Model
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
-                            'kinerja_id',
                             'keterangan'
                             ];
     
-    public function bebanKerja()
+    public function pengajaran()
     {
-        return $this->hasMany(Bebankerja::class);
-    }
-
-    public function kinerja()
-    {
-        return $this->belongsTo(Kinerja::class,'kinerja_id','id');
+        return $this->hasMany(Pengajaran::class);
     }
 }

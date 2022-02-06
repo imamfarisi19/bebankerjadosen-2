@@ -90,6 +90,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="golongan">Golongan</label>
                                 <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan">
                             </div>
                             

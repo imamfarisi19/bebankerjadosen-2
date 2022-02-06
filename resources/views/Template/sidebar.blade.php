@@ -48,7 +48,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-flask"></i>
                         <p>
@@ -63,7 +63,7 @@
                             Pengabdian
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="penunjang" class="nav-link">
                         <i class="nav-icon fa fa-plus"></i>
@@ -72,14 +72,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-print"></i>
                         <p>
                             Cetak
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="{{route('logout')}}" class="nav-link">
                         <i class="nav-icon fa fa-times"></i>

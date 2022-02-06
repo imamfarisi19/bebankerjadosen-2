@@ -17,7 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = "users";
+    protected $primaryKey ='id';
     protected $fillable = [
+        'dosen_id',
+        'admin_id',
         'name',
         'level',
         'email',
@@ -43,13 +47,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function Dosen()
+    public function dosen()
     {
-        return $this->BelongsTo(Dosen::class,'dosen_id','id');
+        return $this->belongsTo(Dosen::class,'dosen_id','id');
     }
 
-    protected function admin()
+    public function admin()
     {
-        return $this->BelongsTo(Admin::class,'admin_id','id');
+        return $this->belongsTo(Admin::class,'admin_id','id');
     }
 }

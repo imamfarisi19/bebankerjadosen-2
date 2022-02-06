@@ -60,16 +60,17 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->kegiatan->jenis}}</td>
-                                <td>{{$item->beban_kerja->buktiPenugasan}}</td>
-                                <td>{{$item->beban_kerja->sks}}</td>
-                                <td>{{$item->masa_penugasan->keterangan}}</td>
-                                <td>{{$item->kinerja->buktiDokumen}}</td>
-                                <td>{{$item->kinerja->sks}}</td>
+                                <td>{{$item->masaPenugasan->keterangan}}</td>
                                 <td>{{$item->rekomendasi->keterangan}}</td>
+                                <td>{{$item->buktiPenugasan}}</td>
+                                <td>{{$item->sksBK}}</td>
+                                <td>{{$item->buktiDokumen}}</td>
+                                <td>{{$item->sksBD}}</td>
+                                
                                 <td>
-                                    <a href="{{ url('edit-pengajaran', $item->Dosen->id) }}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('edit-pengajaran', $item->id) }}"><i class="fas fa-edit"></i></a>
                                     |
-                                    <a href="{{ url('delete-pengajaran', $item->Dosen->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                    <a href="{{ url('delete-pengajaran', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 </td>
                             </tr>
                             @endforeach

@@ -14,8 +14,8 @@ class Rekomendasi extends Model
                             'keterangan'
                             ];
     
-    public function kinerja()
+    public function pengajaran()
     {
-        return $this->hasMany(Kinerja::class);
+        return $this->hasMany(Pengajaran::class);
     }
 }

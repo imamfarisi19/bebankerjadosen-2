@@ -15,8 +15,7 @@ class CreateMasapenugasansTable extends Migration
     {
         Schema::create('masapenugasan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('kinerja_id');
-            $table->date('keterangan');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

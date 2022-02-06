@@ -37,45 +37,102 @@
             <!-- Main content -->
             <div class="content">
                 <div class="card card-info card-outline">
-                    <div class="card-header">
+                    
+                    <!-- <div class="card-header">
                         <div class="card-tools">
                             <a href="{{ route('create-biodata') }}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
                         </div>
-                    </div>
+                    </div> -->
 
+                    @if(auth()->user()->level=="Admin")
                     <div class="card-body">
                         <table class="table table-bordered">
+                            @foreach($dtAdmin as $item)
+                            @if(auth()->user()->admin_id==$item->id)
                             <tr>
-                                <th>#</th>
-                                <th>Nama Depan</th>
-                                <th>Email</th>
-                                <th>NIDN</th>
-                                <th>NIP</th>
-                                <th>Gelar Depan</th>
-                                <th>Gelar Belakang</th>
-                                <th>Aksi</th>
+                                <th>Nama</th>
+                                <td>{{$item->namaDepan}} {{$item->namaBelakang}}</td>
                             </tr>
-                            @foreach ($dtDosen as $item)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->namaDepan}}</td>
+                                <th>Email</th>
                                 <td>{{$item->email}}</td>
-                                <td>{{$item->NIDN}}</td>
-                                <td>{{$item->NIP}}</td>
-                                <td>{{$item->gelarDepan}}</td>
-                                <td>{{$item->gelarBelakang}}</td>
+                            </tr>
+                            <tr>
+                                <th>Jabatan</th>
+                                <td>{{$item->jabatan}}</td>
+                            </tr>
+                            <tr>
+                                <th>tanggalLahir</th>
+                                <td>{{$item->tanggalLahir}}</td>
+                            </tr>
+                            <tr>
+                                <th>Aksi</th>
                                 <td>
                                     <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a>
                                     |
                                     <a href="{{ url('delete-biodata', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 </td>
                             </tr>
+                            @endif
                             @endforeach
                         </table>
                     </div>
-                    <div class="card-footer">
-                        {{ $dtDosen->links() }}
-                    </div>
+                    @endif
+
+                    @if(auth()->user()->level=="User")
+                    <div class="card-body">    
+                        <table class="table table-bordered">
+                            @foreach ($dtDosen as $item)
+                            @if(auth()->user()->dosen_id==$item->id)
+                            <tr>
+                                <th>Nama</th>
+                                <td>{{$item->namaDepan}} {{$item->namaBelakang}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{$item->email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Jabatan</th>
+                                <td>{{$item->jabatan}}</td>
+                            </tr>
+                            <tr>
+                                <th>tanggalLahir</th>
+                                <td>{{$item->tanggalLahir}}</td>
+                            </tr>
+                            <tr>
+                                <th>NIDN</th>
+                                <td>{{$item->NIDN}}</td>
+                            </tr>
+                            <tr>
+                                <th>NIP</th>
+                                <td>{{$item->NIP}}</td>
+                            </tr>
+                            <tr>
+                                <th>Gelar Depan</th>
+                                <td>{{$item->gelarDepan}}</td>
+                            </tr>
+                            <tr>
+                                <th>Gelar Belakang</th>
+                                <td>{{$item->gelarBelakang}}</td>
+                            </tr>
+                            <tr>
+                                <th>jabatan fungsional</th>
+                                <td>{{$item->jabfung->jenis}}</td>
+                            </tr>
+                            <tr>
+                                <th>Aksi</th>
+                                <td>
+                                    <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    |
+                                    <a href="{{ url('delete-biodata', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                </td>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </table>
+                        @endif
+                    </div>    
                 </div>
             </div>
             <!-- /.content -->
