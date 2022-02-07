@@ -14,19 +14,16 @@ class rekomendasiSeeder extends Seeder
     public function run()
     {
         $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'rekomendasi1';
+        $rekomendasi->keterangan = 'Selesai';
         $rekomendasi->save();
 
         $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'rekomendasi2';
+        $rekomendasi->keterangan = 'Sedang Berjalan';
         $rekomendasi->save();
 
         $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'rekomendasi3';
+        $rekomendasi->keterangan = 'Belum Selesai';
         $rekomendasi->save();
 
-        $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'rekomendasi4';
-        $rekomendasi->save();
     }
 }

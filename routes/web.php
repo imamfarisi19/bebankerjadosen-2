@@ -25,7 +25,20 @@ Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
-    route::get('/daftar', 'BerandaController@daftar')->name('daftar');
+    route::get('/daftar', 'DaftarController@index')->name('daftar');
+    route::get('/create-daftar', 'DaftarController@create')->name('create-daftar');
+    route::post('/simpan-daftar', 'DaftarController@store')->name('simpan-daftar');
+
+    route::get('/admin-daftar', 'DaftarController@createAdmin')->name('admin-daftar');
+    route::get('/edit-admin-daftar/{id}', 'DaftarController@editAdmin')->name('edit-admin-daftar');
+    route::post('/update-admin-daftar/{id}', 'DaftarController@updateAdmin')->name('update-admin-daftar');
+    route::get('/delete-admin-daftar/{id}', 'DaftarController@destroy')->name('delete-admin-daftar');
+
+    route::get('/user-daftar', 'DaftarController@createUser')->name('user-daftar');
+    route::get('/edit-user-daftar/{id}', 'DaftarController@editUser')->name('edit-user-daftar');
+    route::post('/update-user-daftar/{id}', 'DaftarController@updateUser')->name('update-user-daftar');
+    route::get('/delete-user-daftar/{id}', 'DaftarController@destroy')->name('delete-user-daftar');
+    
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin,User']], function(){

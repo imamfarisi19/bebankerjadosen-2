@@ -15,26 +15,6 @@ class BerandaController extends Controller
     {
         return view('HalamanDepan.beranda');
     }
-
-    public function biodata()
-    {
-        return view('Tabel.biodata');
-    }
-
-    public function daftar()
-    {
-        return view('AdminRegistration.daftar');
-    }
-    
-    public function pengajaran()
-    {
-        return view('Tabel.pengajaran');
-    }
-
-    public function penunjang()
-    {
-        return view('Tabel.penunjang');
-    }
     
     /**
      * Show the form for creating a new resource.

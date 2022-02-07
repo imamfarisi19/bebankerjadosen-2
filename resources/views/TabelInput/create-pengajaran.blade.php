@@ -44,16 +44,10 @@
                     <div class="card-body">
                         <form action="{{route('simpan-pengajaran')}}" method="post">
                             {{ csrf_field() }}
-                            <div class="form-group">
                             @if (auth()->user()->level=="User")
                             <div class="form-group">
-                            <label for="Dosen">Nama</label>
-                            <select class="form-control seelct2" style="width: 10%" name="dosen_id" id="dosen_id">
-                                    <option value="{{auth()->user()->dosen_id}}">{{auth()->user()->name}}</option>
-                                </select>
-                            </div>
                             <label for="kegiatan_id">Jenis</label>
-                                <select class="form-control seelct2" style="width: 100%" name="kegiatan_id" id="kegiatan_id">
+                                <select class="form-control select" style="width: 100%" name="kegiatan_id" id="kegiatan_id">
                                     <option disabled value>kegiatan</option>
                                     @foreach ($dtKegiatan as $item)
                                     <option value="{{$item->id}}">{{$item->jenis}}</option>
@@ -70,7 +64,7 @@
                             </div>
                             <div class="form-group">
                             <label for="masaPenugasan_id">Masa Penugasan</label>
-                                <select class="form-control seelct2" style="width: 100%" name="masaPenugasan_id" id="masaPenugasan_id">
+                                <select class="form-control select" style="width: 100%" name="masaPenugasan_id" id="masaPenugasan_id">
                                     <option disabled value>Masa Penugasan</option>
                                     @foreach ($dtMasaPenugasan as $item)
                                     <option value="{{$item->id}}">{{$item->keterangan}}</option>
@@ -87,7 +81,7 @@
                             </div>
                             <div class="form-group">
                             <label for="rekomendasi_id">Rekomendasi</label>
-                                <select class="form-control seelct2" style="width: 100%" name="rekomendasi_id" id="rekomendasi_id">
+                                <select class="form-control select" style="width: 100%" name="rekomendasi_id" id="rekomendasi_id">
                                     <option disabled value>Rekomendasi</option>
                                     @foreach ($dtRekomendasi as $item)
                                     <option value="{{$item->id}}">{{$item->keterangan}}</option>
@@ -96,6 +90,12 @@
                             </div>                         
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Simpan Data</button>
+                            </div>
+                            <div class="form-group invisible">
+                            <label for="Dosen">Nama</label>
+                            <select class="form-control select" style="width: 10%" name="dosen_id" id="dosen_id">
+                                    <option value="{{auth()->user()->dosen_id}}">{{auth()->user()->name}}</option>
+                                </select>
                             </div>
                             @endif
                         </form>

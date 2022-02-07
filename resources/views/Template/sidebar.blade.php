@@ -13,7 +13,7 @@
                 <img src="{{asset('AdminLTE/dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{auth()->user()->name}}</a>
+                <p href="#" class="d-block" style="color:white">{{auth()->user()->name}}</p>
             </div>
         </div>
 
@@ -22,6 +22,14 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item">
+                    <a href="beranda" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Beranda
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="biodata" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
@@ -40,6 +48,7 @@
                     </a>
                 </li>
                 @endif
+                @if (auth()->user()->level=="User")
                 <li class="nav-item">
                     <a href="pengajaran" class="nav-link">
                         <i class="nav-icon fa fa-university"></i>
@@ -47,7 +56,7 @@
                             Pengajaran
                         </p>
                     </a>
-                </li>
+                </li>                
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-flask"></i>
@@ -65,13 +74,14 @@
                     </a>
                 </li> -->
                 <li class="nav-item">
-                    <a href="penunjang" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-plus"></i>
                         <p>
                             Penunjang
                         </p>
                     </a>
                 </li>
+                @endif
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-print"></i>

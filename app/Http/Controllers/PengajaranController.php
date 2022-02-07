@@ -89,7 +89,21 @@ class PengajaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dtPengajaran = Pengajaran::all();
+        $dtDosen = Dosen::all();
+        $dtKegiatan = Kegiatan::all();
+        $dtMasaPenugasan = Masapenugasan::all();
+        $dtRekomendasi = Rekomendasi::all();
+
+        $findPengajaran = Pengajaran::with('dosen','kegiatan','masaPenugasan','rekomendasi')->findorfail($id);
+        return view('TabelInput.edit-pengajaran', compact(
+            'findPengajaran',
+            'dtPengajaran',
+            'dtDosen',
+            'dtKegiatan',
+            'dtMasaPenugasan',
+            'dtRekomendasi'
+        ));
     }
 
     /**
@@ -101,7 +115,20 @@ class PengajaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pengajaran = Pengajaran::findorfail($id);
+        $a = $request->buktiPenugasan;
+        $b = $request->buktiDokumen;
+
+        if($a == null && $b != null){
+            return back()->with('toast_info', 'mohon upload bukti penugasan !');
+        }else if($b == null && $a != null){
+            return back()->with('toast_info', 'mohon upload bukti dokumen !');
+        }else if($a == null && $b == null){
+            return back()->with('toast_info', 'mohon upload bukti penugasan dan bukti dokumen!');
+        }else{}
+        $pengajaran->update($request->all());
+        
+        return redirect('pengajaran')->with('toast_success', 'Data berhasil diperbarui');
     }
 
     /**
@@ -112,6 +139,9 @@ class PengajaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dos = Pengajaran::findorfail($id);
+        $dos->delete();
+
+        return back()->with('toast_info', 'Data Berhasil Dihapus!');
     }
 }

@@ -14,6 +14,14 @@ class masaPenugasanSeeder extends Seeder
     public function run()
     {
         $masaPen = new \App\Models\Masapenugasan;
+        $masaPen->keterangan= '1 hari';
+        $masaPen->save();
+
+        $masaPen = new \App\Models\Masapenugasan;
+        $masaPen->keterangan= '1 pekan';
+        $masaPen->save();
+
+        $masaPen = new \App\Models\Masapenugasan;
         $masaPen->keterangan= '1 bulan';
         $masaPen->save();
 
@@ -38,7 +46,7 @@ class masaPenugasanSeeder extends Seeder
         $masaPen->save();
 
         $masaPen = new \App\Models\Masapenugasan;
-        $masaPen->keterangan= '7 bulan';
+        $masaPen->keterangan= '1 tahun';
         $masaPen->save();
     }
 }

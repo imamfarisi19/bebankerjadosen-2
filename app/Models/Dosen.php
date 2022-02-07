@@ -13,7 +13,7 @@ class Dosen extends Model
                             'id',
                             'namaDepan',
                             'namaBelakang', 
-                            'email_user', 
+                            'email', 
                             'jabatan',
                             'tanggalLahir',
                             'NIDN',

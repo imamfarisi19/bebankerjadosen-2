@@ -35,129 +35,64 @@
             </section>
 
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with minimal features & hover style</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example2" class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td> 4</td>
-                                                <td>X</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 5.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td>5</td>
-                                                <td>C</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 5.5
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td>5.5</td>
-                                                <td>A</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with default features</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td> 4</td>
-                                                <td>X</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 5.0
-                                                </td>
-                                                <td>Win 95+</td>
-                                                <td>5</td>
-                                                <td>C</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Other browsers</td>
-                                                <td>All others</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>U</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Rendering engine</th>
-                                                <th>Browser</th>
-                                                <th>Platform(s)</th>
-                                                <th>Engine version</th>
-                                                <th>CSS grade</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
+            <div class="content">
+                <div class="card card-info card-outline">
+                    <div class="card-header">
+                        <div class="card-tools">
+                            <a href="{{ route('create-daftar') }}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
+
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>#</th>
+                                <th>nama</th>
+                                <th>email</th>
+                                <th>jabatan</th>
+                                <th>NIDN</th>
+                                <th>NIP</th>
+                                <th>Aksi</th>
+                            </tr>
+                            @foreach ($dtDaftar as $item)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>                                
+                                <td>                                    
+                                    {{isset($item->admin['namaDepan']) ? $item->admin['namaDepan'] : ''}}
+                                    {{isset($item->admin['namaBelakang']) ? $item->admin['namaBelakang'] : ''}}
+
+                                    {{isset($item->dosen['gelarDepan']) ? $item->dosen['gelarDepan'] : ''}}
+                                    {{isset($item->dosen['namaDepan']) ? $item->dosen['namaDepan'] : ''}}
+                                    {{isset($item->dosen['namaBelakang']) ? $item->dosen['namaBelakang'] : ''}}
+                                    {{isset($item->dosen['gelarBelakang']) ? $item->dosen['gelarBelakang'] : ''}}
+                                </td>                                
+                                <td>{{$item->email}}</td>
+                                <td>{{isset($item->dosen['jabatan']) ? $item->dosen['jabatan'] : ''}}
+                                    {{isset($item->admin['jabatan']) ? $item->admin['jabatan'] : ''}}
+                                </td>
+                                <td>{{isset($item->dosen['NIDN']) ? $item->dosen['NIDN'] : ''}}</td>
+                                <td>{{isset($item->dosen['NIP']) ? $item->dosen['NIP'] : ''}}</td>
+                                <td>
+                                @if($item->admin_id == null)
+                                    <a href="{{ url('edit-user-daftar', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    |
+                                    <a href="{{ url('delete-user-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                @endif
+                                @if($item->admin_id != null)
+                                    <a href="{{ url('edit-admin-daftar', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    |
+                                    <a href="{{ url('delete-admin-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                @endif
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        {{ $dtDaftar->links() }}
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
-            </section>
+            </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -180,6 +115,8 @@
     <!-- AdminLTE for demo purposes -->
     <!-- Page specific script -->
     @include('Template.tableScript')
+
+    @include('sweetalert::alert')
 </body>
 
 </html>

@@ -42,44 +42,62 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ url('update-biodata',$dos->id)}}" method="post">
+                        <form action="{{ url('update-pengajaran',$findPengajaran->id)}}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <input type="text" id="namaDepan" name="namaDepan" class="form-control" placeholder="Nama Depan" value="{{ $dos->namaDepan }}">
+                            <label for="kegiatan_id">Jenis</label>
+                                <select class="form-control select" style="width: 100%" name="kegiatan_id" id="kegiatan_id">
+                                    <option disabled value>kegiatan</option>
+                                    <option disabled value="$findPengajaran->kegiatan_id" style="background-color:black;color:white">{{ $findPengajaran->kegiatan->jenis }}</option>
+                                    @foreach ($dtKegiatan as $item)
+                                    <option value="{{$item->id}}">{{$item->jenis}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="namaBelakang" name="namaBelakang" class="form-control" placeholder="Nama Belakang" value="{{ $dos->namaBelakang }}">
+                            <label for="buktiPenugasan">bukti Penugasan</label>
+                                <input type="file" id="buktiPenugasan" name="buktiPenugasan" class="form-control" placeholder="Bukti Penugasan" value="{{$findPengajaran->buktiPenugasan}}">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="email" name="email" class="form-control" placeholder="email" value="{{ $dos->email}}">
+                            <label for="sksBK">SKS Beban Kerja</label>
+                                <input type="text" id="sksBK" name="sksBK" class="form-control" placeholder="SKS Beban Kerja" value="{{$findPengajaran->sksBK}}">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="jabatan" name="jabatan" class="form-control" placeholder="Jabatan" value="{{ $dos->jabatan}}">
+                            <label for="masaPenugasan_id">Masa Penugasan</label>
+                                <select class="form-control select" style="width: 100%" name="masaPenugasan_id" id="masaPenugasan_id">
+                                    <option disabled value>Masa Penugasan</option>
+                                    <option disabled value="$findPengajaran->masaPenugasan_id" style="background-color:black;color:white">{{ $findPengajaran->masaPenugasan->keterangan }}</option>
+                                    @foreach ($dtMasaPenugasan as $item)
+                                    <option value="{{$item->id}}">{{$item->keterangan}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" value="{{ $dos->tanggalLahir}}">
+                            <label for="buktiDokumen">Bukti Dokumen</label>
+                                <input type="file" id="buktiDokumen" name="buktiDokumen" class="form-control" placeholder="Bukti Dokumen" value="{{$findPengajaran->buktiDokumen}}">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="NIDN" name="NIDN" class="form-control" placeholder="NIDN" value="{{ $dos->NIDN}}">
+                            <label for="sksBD">SKS Bukti Dokumen</label>
+                                <input type="text" id="sksBD" name="sksBD" class="form-control" placeholder="sks Bukti Dokumen" value="{{$findPengajaran->sksBD}}">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="NIP" name="NIP" class="form-control" placeholder="NIP" value="{{ $dos->NIP}}">
-                            </div>
+                            <label for="rekomendasi_id">Rekomendasi</label>
+                                <select class="form-control select" style="width: 100%" name="rekomendasi_id" id="rekomendasi_id" value="{{$findPengajaran->rekomendasi->keterangan}}">
+                                    <option disabled value>Rekomendasi</option>
+                                    <option disabled value="$findPengajaran->rekomendasi_id" style="background-color:black;color:white">{{ $findPengajaran->rekomendasi->keterangan }}</option>
+                                    @foreach ($dtRekomendasi as $item)
+                                    <option value="{{$item->id}}">{{$item->keterangan}}</option>
+                                    @endforeach
+                                </select>
+                            </div>                         
                             <div class="form-group">
-                                <input type="text" id="gelarDepan" name="gelarDepan" class="form-control" placeholder="Gelar Depan" value="{{ $dos->gelarDepan}}">
+                                <button type="submit" class="btn btn-success">Simpan Data</button>
                             </div>
-                            <div class="form-group">
-                                <input type="text" id="gelarBelakang" name="gelarBelakang" class="form-control" placeholder="gelarBelakang" value="{{ $dos->gelarBelakang}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="jabatanFungsional" name="jabatanFungsional" class="form-control" placeholder="jabatanFungsional" value="{{ $dos->jabatanFungsional}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan" value="{{ $dos->golongan}}">
-                            </div>
-                            
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                            <div class="form-group invisible">
+                            <label for="Dosen">Nama</label>
+                            <select class="form-control select" style="width: 10%" name="dosen_id" id="dosen_id">
+                                    <option value="{{auth()->user()->dosen_id}}">{{auth()->user()->name}}</option>
+                                </select>
                             </div>
                         </form>
                     </div>

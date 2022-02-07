@@ -16,12 +16,12 @@ class CreateDosensTable extends Migration
         Schema::create('dosen', function (Blueprint $table) {
             $table->increments('id');
             $table->string('namaDepan', 20);
-            $table->string('namaBelakang', 20); 
+            $table->string('namaBelakang', 20);
             $table->string('email', 30);
             $table->string('jabatan', 20)->nullable();
             $table->date('tanggalLahir');
             $table->string('NIDN', 15);
-            $table->string('NIP', 15);
+            $table->string('NIP', 20);
             $table->string('gelarDepan')->nullable();
             $table->string('gelarBelakang', 20);
             $table->bigInteger('jabatanFungsional_id')->nullable();
