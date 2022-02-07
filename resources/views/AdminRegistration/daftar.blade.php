@@ -74,12 +74,12 @@
                                 <td>{{isset($item->dosen['NIP']) ? $item->dosen['NIP'] : ''}}</td>
                                 <td>
                                 @if($item->admin_id == null)
-                                    <a href="{{ url('edit-user-daftar', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('#', $item->id) }}"><i class="fas fa-edit"></i></a>
                                     |
                                     <a href="{{ url('delete-user-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 @endif
                                 @if($item->admin_id != null)
-                                    <a href="{{ url('edit-admin-daftar', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('#', $item->id) }}"><i class="fas fa-edit"></i></a>
                                     |
                                     <a href="{{ url('delete-admin-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 @endif
