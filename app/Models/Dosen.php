@@ -21,7 +21,8 @@ class Dosen extends Model
                             'gelarDepan',   
                             'gelarBelakang',
                             'jabatanFungsional_id',
-                            'golongan'
+                            'golongan',
+                            'gambar'
                             ];
 
     public function jabfung()

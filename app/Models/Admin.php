@@ -15,7 +15,8 @@ class Admin extends Model
                             'namaBelakang', 
                             'email', 
                             'jabatan',
-                            'tanggalLahir'
+                            'tanggalLahir',
+                            'gambar'
                             ];
 
     public function user()

@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('simpan-daftar')}}" method="post">
+                        <form action="{{route('simpan-daftar')}}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             @if (auth()->user()->level=="Admin")
                             <div class="form-group">
@@ -89,6 +89,10 @@
                             <div class="form-group">
                                 <label for="golongan">Golongan</label>
                                 <input type="text" id="golongan" name="golongan" class="form-control" placeholder="Golongan">
+                            </div>
+                            <div class="form-group">
+                                <label for="gambar">Gambar</label>
+                                <input type="file" id="gambar" name="gambar">
                             </div>
 
                             <div class="form-group">

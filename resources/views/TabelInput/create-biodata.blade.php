@@ -93,7 +93,10 @@
                                 <label for="golongan">Golongan</label>
                                 <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan">
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="gambar">Upload Gambar</label>
+                                <input type="text" id="golongan" name="golongan" class="form-control" placeholder="golongan">
+                            </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Simpan Data</button>
                             </div>

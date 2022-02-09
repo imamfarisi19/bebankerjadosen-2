@@ -13,6 +13,11 @@ class dosenSeeder extends Seeder
      */
     public function run()
     {
+        
+        $gambar = 'avatar.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Rudy';
         $dosen->namaBelakang = 'Ansari';
@@ -25,10 +30,15 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVC';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
         
+        $gambar = 'avatar2.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Nahdi';
         $dosen->namaBelakang = 'Saubari';
@@ -41,10 +51,15 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 2;
         $dosen->golongan = 'IVA';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
 
+        $gambar = 'avatar3.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Muhammad Syahid';
         $dosen->namaBelakang = 'Pebriadi';
@@ -57,10 +72,15 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVB';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
 
+        $gambar = 'avatar4.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Mukhaimy';
         $dosen->namaBelakang = 'Gazali';
@@ -68,15 +88,20 @@ class dosenSeeder extends Seeder
         $dosen->jabatan= 'Lektor';
         $dosen->tanggalLahir = '2022-12-01';
         $dosen->NIDN = '1112068401';
-        $dosen->NIP = '200.010.016';
+        $dosen->NIP = '200010016';
         $dosen->gelarDepan = '';
         $dosen->gelarBelakang = 'S.Si., M.Si';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVC';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
 
+        $gambar = 'avatar5.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Windarsyah';
         $dosen->namaBelakang = '';
@@ -89,10 +114,15 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVB';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
 
+        $gambar = 'avatar.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Muhammad Ziki';
         $dosen->namaBelakang = 'Elfirman';
@@ -105,10 +135,15 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVB';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
         
+        $gambar = 'avatar2.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Munsyi';
         $dosen->namaBelakang = '';
@@ -121,10 +156,15 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVB';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();
 
+        $gambar = 'avatar3.png';
+        $ext = pathinfo($gambar, PATHINFO_EXTENSION);
+        $namaGambar = time().rand(100,999).".".$ext;
+        copy(public_path("\\AdminLTE\\dist\\img\\$gambar"), public_path("img\\$namaGambar"));
         $dosen = new \App\Models\Dosen;
         $dosen->namaDepan = 'Kamarudin';
         $dosen->namaBelakang = '';
@@ -137,6 +177,7 @@ class dosenSeeder extends Seeder
         $dosen->gelarBelakang = 'M.Kom';
         $dosen->jabatanFungsional_id = 1;
         $dosen->golongan = 'IVB';
+        $dosen->gambar = $namaGambar;
         $dosen->created_at = "2022-02-02 00:47:25";
         $dosen->updated_at = "2022-02-02 00:47:25";
         $dosen->save();

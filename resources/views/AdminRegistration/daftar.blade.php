@@ -47,6 +47,7 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>#</th>
+                                <th>Foto</th>
                                 <th>nama</th>
                                 <th>email</th>
                                 <th>jabatan</th>
@@ -57,7 +58,19 @@
                             @foreach ($dtDaftar as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>                                
-                                <td>                                    
+                                <td width="20%" class="text-center">
+                                    @php
+                                        $adminGambar = isset($item->admin['gambar']) ? $item->admin['gambar'] : '';
+                                        $dosenGambar = isset($item->dosen['gambar']) ? $item->dosen['gambar'] : '';
+                                    @endphp
+                                    @if($adminGambar != '')
+                                        <a href="{{ asset('/img/'.$adminGambar) }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset('/img/'.$adminGambar)}}" height="50%" width="50%" alt="$adminGambar" srcset=""></a>
+                                    @endif
+                                    @if($dosenGambar != '')
+                                        <a href="{{ asset('/img/'.$dosenGambar) }}" target="_blank" rel="noopener noreferrer"><img src="{{ asset('/img/'.$dosenGambar)}}" height="50%" width="50%" alt="$dosenGambar" srcset=""></a>
+                                    @endif
+                                </td>
+                                <td>
                                     {{isset($item->admin['namaDepan']) ? $item->admin['namaDepan'] : ''}}
                                     {{isset($item->admin['namaBelakang']) ? $item->admin['namaBelakang'] : ''}}
 
@@ -73,14 +86,12 @@
                                 <td>{{isset($item->dosen['NIDN']) ? $item->dosen['NIDN'] : ''}}</td>
                                 <td>{{isset($item->dosen['NIP']) ? $item->dosen['NIP'] : ''}}</td>
                                 <td>
-                                @if($item->admin_id == null)
+                                @if($item->dosen_id != null)
                                     <a href="{{ url('#', $item->id) }}"><i class="fas fa-edit"></i></a>
-                                    |
                                     <a href="{{ url('delete-user-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 @endif
                                 @if($item->admin_id != null)
                                     <a href="{{ url('#', $item->id) }}"><i class="fas fa-edit"></i></a>
-                                    |
                                     <a href="{{ url('delete-admin-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 @endif
                                 </td>

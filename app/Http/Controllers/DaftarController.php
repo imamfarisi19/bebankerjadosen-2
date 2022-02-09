@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Dosen;
 use App\Models\Admin;
 use App\Models\jabatanfungsional;
+use App\Models\Uploadgambar;
 
 class DaftarController extends Controller
 {
@@ -19,7 +20,17 @@ class DaftarController extends Controller
     public function index()
     {
         $dtDaftar = User::with('dosen', 'admin')->paginate(100);
-        return view('AdminRegistration.daftar', compact('dtDaftar'));
+        $dtGambar = Uploadgambar::all();
+
+        $adminGambar = array();
+        $dosenGambar = array();
+        foreach ($dtDaftar as $item)
+        {
+            $adminGambar[] = isset($item->admin['gambar']) ? $item->admin['gambar'] : '';
+            $dosenGambar[] = isset($item->dosen['gambar']) ? $item->dosen['gambar'] : '';            
+        }
+        
+        return view('AdminRegistration.daftar', compact('dtDaftar', 'dtGambar', 'adminGambar', 'dosenGambar'));
         // $data1 = isset($dtDaftar->dosen['id']) ? $dtDaftar->dosen['id'] : '';
     }
 
@@ -63,8 +74,11 @@ class DaftarController extends Controller
      */
     public function store(Request $request)
     {
-        
         if($request->level=="User"){
+            $gambar = $request->gambar;
+            $namaGambar = time().rand(100,999).".".$gambar->getClientOriginalExtension();
+            $gambar->move(public_path().'/img', $namaGambar);
+
             Dosen::create([
                'namaDepan' => $request->namaDepan,
                'namaBelakang' => $request->namaBelakang, 
@@ -77,16 +91,21 @@ class DaftarController extends Controller
                'gelarBelakang' => $request->gelarBelakang,
                'jabatanFungsional_id' => $request->jabatanFungsional_id,
                'golongan' => $request->golongan,
+               'gambar' => $namaGambar,
             ]);
         }
 
         if($request->level=="Admin"){
+            $gambar = $request->gambar;
+            $namaGambar = time().rand(100,999).".".$gambar->getClientOriginalExtension();
+            $gambar->move(public_path().'/img', $namaGambar);
             Admin::create([
                 'namaDepan' => $request->namaDepan,
                 'namaBelakang' => $request->namaBelakang,
                 'email' => $request->email,
                 'jabatan' => $request->jabatan,
                 'tanggalLahir' => $request->tanggalLahir,
+                'gambar' => $namaGambar,
             ]);
         }
 

@@ -18,7 +18,7 @@ class CreateDosensTable extends Migration
             $table->string('namaDepan', 20);
             $table->string('namaBelakang', 20);
             $table->string('email', 30);
-            $table->string('jabatan', 20)->nullable();
+            $table->string('jabatan', 100)->nullable();
             $table->date('tanggalLahir');
             $table->string('NIDN', 15);
             $table->string('NIP', 20);
@@ -26,6 +26,7 @@ class CreateDosensTable extends Migration
             $table->string('gelarBelakang', 20);
             $table->bigInteger('jabatanFungsional_id')->nullable();
             $table->string('golongan', 11);
+            $table->string('gambar');
             $table->timestamps();
         });
     }
