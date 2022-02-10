@@ -38,11 +38,11 @@
             <section class="content">
                 <div class="card card-info card-outline">
                     <div class="card-header">
-                        <h3>Mendaftarkan Dosen</h3>
+                        <h3>Mendaftarkan Admin</h3>
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('simpan-daftar')}}" method="post">
+                        <form action="{{route('simpan-daftar')}}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             @if (auth()->user()->level=="Admin")
                             <div class="form-group">                            
@@ -62,6 +62,10 @@
                                 <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir">
                             </div>
                             <div class="form-group">
+                                <label for="gambar">Gambar</label>
+                                <input type="file" id="gambar" name="gambar">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" id="email" name="email" class="form-control" placeholder="Email">
                             </div>
@@ -69,6 +73,7 @@
                                 <label for="password">Password</label>
                                 <input type="text" id="password" name="password" class="form-control" placeholder="Password">
                             </div>
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Simpan Data</button>
                             </div>

@@ -46,8 +46,13 @@
 
                     @if(auth()->user()->level=="Admin")
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table">
                             @foreach($dtAdmin as $item)
+                            <tr>
+                                <th width="2%" height="2%" class="">Foto</th>
+                                <td width="10%" class="text-left"><img src="{{ asset('/img/'.$item->gambar)}}" height="20%" width="20%" alt="$adminGambar" srcset=""></td>
+                                <td width="10%" class="" style="border:0ch"></td>
+                            </tr>
                             @if(auth()->user()->admin_id==$item->id)
                             <tr>
                                 <th>Nama</th>
@@ -62,14 +67,14 @@
                                 <td>{{$item->jabatan}}</td>
                             </tr>
                             <tr>
-                                <th>tanggalLahir</th>
+                                <th>Tanggal Lahir</th>
                                 <td>{{$item->tanggalLahir}}</td>
                             </tr>
                             <tr>
                                 <th>Aksi</th>
                                 <td>
                                     <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a>
-                                    |
+                                    <a class="invisible"><i class="fas fa-edit"></i></a>
                                     <a href="{{ url('delete-biodata', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 </td>
                             </tr>
@@ -80,10 +85,15 @@
                     @endif
 
                     @if(auth()->user()->level=="User")
-                    <div class="card-body">    
-                        <table class="table table-bordered">
+                    <div class="card-body">
+                        <table class="table">
                             @foreach ($dtDosen as $item)
                             @if(auth()->user()->dosen_id==$item->id)
+                            <tr>
+                                <th width="2%" height="2%" class="">Foto</th>
+                                <td width="10%" class="text-left"><img src="{{ asset('/img/'.$item->gambar)}}" height="20%" width="20%" alt="$adminGambar" srcset=""></td>
+                                <td width="10%" class="" style="border:0ch"></td>
+                            </tr>
                             <tr>
                                 <th>Nama</th>
                                 <td>{{$item->namaDepan}} {{$item->namaBelakang}}</td>
@@ -124,7 +134,6 @@
                                 <th>Aksi</th>
                                 <td>
                                     <a href="{{ url('edit-biodata', $item->id) }}"><i class="fas fa-edit"></i></a>
-                                    |
                                     <a href="{{ url('delete-biodata', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 </td>
                             </tr>

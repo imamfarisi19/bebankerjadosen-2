@@ -38,7 +38,7 @@
             <section class="content">
                 <div class="card card-info card-outline">
                     <div class="card-header">
-                        <h3>didaftarkan sebagai</h3>
+                        <h3>edit admin</h3>
                     </div>
 
                     <div class="card-body">

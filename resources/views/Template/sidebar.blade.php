@@ -82,14 +82,14 @@
                     </a>
                 </li>
                 @endif
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-print"></i>
+                    <i class="nav-icon fas fa-check-circle"></i>
                         <p>
-                            Cetak
+                            Asesor
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="{{route('logout')}}" class="nav-link">
                         <i class="nav-icon fa fa-times"></i>

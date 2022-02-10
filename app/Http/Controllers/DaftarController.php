@@ -99,6 +99,7 @@ class DaftarController extends Controller
             $gambar = $request->gambar;
             $namaGambar = time().rand(100,999).".".$gambar->getClientOriginalExtension();
             $gambar->move(public_path().'/img', $namaGambar);
+            
             Admin::create([
                 'namaDepan' => $request->namaDepan,
                 'namaBelakang' => $request->namaBelakang,
@@ -168,7 +169,7 @@ class DaftarController extends Controller
     public function edit($id)
     {
         $jabFung = Jabatanfungsional::all();
-        $dtUser = User::with('dosen', 'admin')->paginate(100);
+        $dtUser = User::with('dosen', 'admin')->findorfail($id);        
         $dtDosen = Dosen::all();
         $dtAdmin = Admin::all();
         $dtDaftar = User::with('dosen', 'admin')->paginate(100);
@@ -179,11 +180,20 @@ class DaftarController extends Controller
     public function editAdmin($id)
     {
         $jabFung = Jabatanfungsional::all();
-        $dtUser = User::with('dosen', 'admin')->paginate(100);
+        $dtUser = User::with('dosen', 'admin')->findOrFail($id);
         $dtDosen = Dosen::all();
         $dtAdmin = Admin::all();
         //dd($dtUser[0]->admin['namaDepan']);
         return view('AdminRegistration.edit-admin-daftar', compact('dtDosen','dtAdmin','dtUser','jabFung'));
+    }
+
+    public function editUser($id)
+    {
+        $jabFung = Jabatanfungsional::all();
+        $dtUser = User::with('dosen', 'admin')->findOrFail($id);
+        $dtDosen = Dosen::all();
+        $dtAdmin = Admin::all();
+        return view('AdminRegistration.edit-user-daftar', compact('dtDosen','dtAdmin','dtUser','jabFung'));
     }
 
     /**
@@ -198,6 +208,53 @@ class DaftarController extends Controller
         //
     }
 
+    public function updateAdmin(Request $request, $id)
+    {
+        $jabFung = Jabatanfungsional::all();
+        $dtDosen = Dosen::all();
+        $dtAdmin = Admin::all();
+        $dtUser = User::with('dosen', 'admin')->findOrFail($id);
+        $dtUser->update($request->all());
+        return redirect('daftar')->with('toast_success', 'Data berhasil diperbarui');
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $dtUser = User::with('dosen', 'admin')->findOrFail($id);
+        $a = $request['namaDepan']." ".$request['namaBelakang'];    
+        $request['name'] = $a;
+        $dtU = [
+            'dosen_id' => $request['dosen_id'],
+            'admin_id' => $request['admin_id'],
+            'name' => $request['name'],
+            'level' => $request['level'],
+            'username' => $request['username'],
+            'password' => $request['password'],
+        ];
+        $dtUser->update($dtU);
+        
+        $dtDosen = Dosen::findOrFail($request->dosen_id);
+        $awal = $dtDosen->gambar;
+        $dtD = [
+            'namaDepan' => $request['namaDepan'],
+            'namaBelakang' => $request['namaBelakang'],
+            'email' => $request['email'],
+            'tanggalLahir' => $request['tanggalLahir'],
+            'NIDN' => $request['NIDN'],
+            'NIP' => $request['NIP'],
+            'gelarDepan' => $request['gelarDepan'],
+            'gelarBelakang' => $request['gelarBelakang'],
+            'jabatanFungsional_id' => $request['jabatanFungsional_id'],
+            'golongan' => $request['golongan'],
+            'gambar' => $awal
+        ];
+        $request->gambar->move(public_path().'/img',$awal);
+        $dtDosen->update($dtD);
+
+        return redirect('daftar')->with('toast_success', 'Data berhasil diperbarui');
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -206,9 +263,53 @@ class DaftarController extends Controller
      */
     public function destroy($id)
     {
-        $dos = User::findorfail($id);
-        $dos->delete();
+        
+        $user = User::with('dosen', 'admin')->findorfail($id);
+        $user->delete();
+        $user->dosen->delete();
 
         return back()->with('toast_info', 'Data Berhasil Dihapus!');
     }
 }
+
+
+        // if(isset($_POST['submit'])) 
+        // {
+        //     $file = $_FILES['file'];
+
+        //     $fileName = $_FILES['file']['name'];
+        //     $fileTmpName = $_FILES['file']['tmp_name'];
+        //     $fileSize = $_FILES['file']['size'];
+        //     $fileError = $_FILES['file']['error'];
+        //     $fileType = $_FILES['file']['type'];
+
+        //     $fileExt = explode('.', $fileName);
+        //     $fileActualExt = strtolower(end($fileExt));
+        //     $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+
+        //     if(in_array($fileActualExt, $allowed)) 
+        //     {
+        //         if($fileError === 0)
+        //         {
+        //             if($fileSize < 1000000)
+        //             {
+        //                 $fileNameNew = uniqid('', true).".".$fileActualExt;
+        //                 $fileDestination = public_path('/img/');
+        //                 move_uploaded_file($fileTmpName, $fileDestination);
+        //             } 
+        //             else
+        //             {
+        //               back()->with('toast_info', 'file anda terlalu besar!');  
+        //             }
+        //         }
+        //         else
+        //         {
+        //             back()->with('toast_info', 'error saat mengupload file!');
+        //         }
+        //     }
+        //     else
+        //     {
+        //         back()->with('toast_info', 'tidak dapat mengunduh dari tipe file ini!');
+        //     }
+            
+        // }

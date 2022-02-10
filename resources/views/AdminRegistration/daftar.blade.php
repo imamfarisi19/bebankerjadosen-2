@@ -38,13 +38,13 @@
             <div class="content">
                 <div class="card card-info card-outline">
                     <div class="card-header">
-                        <div class="card-tools">
+                        <div class="card-tools col-12">
                             <a href="{{ route('create-daftar') }}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table">
                             <tr>
                                 <th>#</th>
                                 <th>Foto</th>
@@ -87,11 +87,11 @@
                                 <td>{{isset($item->dosen['NIP']) ? $item->dosen['NIP'] : ''}}</td>
                                 <td>
                                 @if($item->dosen_id != null)
-                                    <a href="{{ url('#', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('edit-user-daftar', $item->id) }}"><i class="fas fa-edit"></i></a>
                                     <a href="{{ url('delete-user-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 @endif
                                 @if($item->admin_id != null)
-                                    <a href="{{ url('#', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('edit-admin-daftar', $item->id) }}"><i class="fas fa-edit"></i></a>
                                     <a href="{{ url('delete-admin-daftar', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 @endif
                                 </td>
