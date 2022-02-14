@@ -15,8 +15,8 @@ class Bebankerja extends Model
                             'sks'
                             ];
     
-    public function kegiatan()
+    public function pengajaran()
     {
-        return $this->hasMany(Kegiatan::class);
+        return $this->hasMany(Pengajaran::class);
     }
 }

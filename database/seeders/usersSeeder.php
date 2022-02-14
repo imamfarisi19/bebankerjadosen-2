@@ -28,11 +28,22 @@ class usersSeeder extends Seeder
         $user->save();
 
         $user = new \App\Models\User;
+        $user->dosen_id = NULL;
+        $user->admin_id = 2;
+        $user->name = 'Fajar Akbar Maulana';
+        $user->level = 'Admin';
+        $user->email = 'fajar@login.admin';
+        $user->email_verified_at = NULL;
+        $user->password = hash::make('12345678');
+        $user->remember_token = Str::random(60);
+        $user->save();
+
+        $user = new \App\Models\User;
         $user->dosen_id = 1;
         $user->admin_id = NULL;
-        $user->name = 'Dosen 1';
+        $user->name = 'Rudy Ansari';
         $user->level = 'User';
-        $user->email = 'user1@gmail.com';
+        $user->email = 'rudy@umbjm.ac.id';
         $user->email_verified_at = NULL;
         $user->password = hash::make('12345678');
         $user->remember_token = Str::random(60);
@@ -41,9 +52,9 @@ class usersSeeder extends Seeder
         $user = new \App\Models\User;
         $user->dosen_id = 2;
         $user->admin_id = NULL;
-        $user->name = 'Dosen 2';
+        $user->name = 'Nahdi Saubari';
         $user->level = 'User';
-        $user->email = 'user2@gmail.com';
+        $user->email = 'nahdi@umbjm.ac.id';
         $user->email_verified_at = NULL;
         $user->password = hash::make('12345678');
         $user->remember_token = Str::random(60);
@@ -52,9 +63,9 @@ class usersSeeder extends Seeder
         $user = new \App\Models\User;
         $user->dosen_id = 3;
         $user->admin_id = NULL;
-        $user->name = 'Dosen 3';
+        $user->name = 'Muhammad Syahid Pebriadi';
         $user->level = 'User';
-        $user->email = 'user3@gmail.com';
+        $user->email = 'syahid@umbjm.ac.id';
         $user->email_verified_at = NULL;
         $user->password = hash::make('12345678');
         $user->remember_token = Str::random(60);
@@ -63,9 +74,9 @@ class usersSeeder extends Seeder
         $user = new \App\Models\User;
         $user->dosen_id = 4;
         $user->admin_id = NULL;
-        $user->name = 'Dosen 4';
+        $user->name = 'Mukhaimy Gazali';
         $user->level = 'User';
-        $user->email = 'user4@gmail.com';
+        $user->email = 'mukhaimy@umbjm.ac.id';
         $user->email_verified_at = NULL;
         $user->password = hash::make('12345678');
         $user->remember_token = Str::random(60);
@@ -74,9 +85,9 @@ class usersSeeder extends Seeder
         $user = new \App\Models\User;
         $user->dosen_id = 5;
         $user->admin_id = NULL;
-        $user->name = 'Dosen 5';
+        $user->name = 'Windarsyah';
         $user->level = 'User';
-        $user->email = 'user5@gmail.com';
+        $user->email = 'windarsyah@umbjm.ac.id';
         $user->email_verified_at = NULL;
         $user->password = hash::make('12345678');
         $user->remember_token = Str::random(60);
@@ -85,9 +96,31 @@ class usersSeeder extends Seeder
         $user = new \App\Models\User;
         $user->dosen_id = 6;
         $user->admin_id = NULL;
-        $user->name = 'Dosen 6';
+        $user->name = 'Muhammad Ziki Elfirman';
         $user->level = 'User';
-        $user->email = 'user6@gmail.com';
+        $user->email = 'Ziki@umbjm.ac.id';
+        $user->email_verified_at = NULL;
+        $user->password = hash::make('12345678');
+        $user->remember_token = Str::random(60);
+        $user->save();
+
+        $user = new \App\Models\User;
+        $user->dosen_id = 7;
+        $user->admin_id = NULL;
+        $user->name = 'Munsyi';
+        $user->level = 'User';
+        $user->email = 'munsyi@umbjm.ac.id';
+        $user->email_verified_at = NULL;
+        $user->password = hash::make('12345678');
+        $user->remember_token = Str::random(60);
+        $user->save();
+
+        $user = new \App\Models\User;
+        $user->dosen_id = 8;
+        $user->admin_id = NULL;
+        $user->name = 'Kamarudin';
+        $user->level = 'User';
+        $user->email = 'kamarudin@umbjm.ac.id';
         $user->email_verified_at = NULL;
         $user->password = hash::make('12345678');
         $user->remember_token = Str::random(60);

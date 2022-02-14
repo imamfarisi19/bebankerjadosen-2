@@ -14,15 +14,15 @@ class rekomendasiSeeder extends Seeder
     public function run()
     {
         $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'Selesai';
+        $rekomendasi->keterangan = 'Memenuhi';
         $rekomendasi->save();
 
         $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'Sedang Berjalan';
+        $rekomendasi->keterangan = 'Belum Memenuhi';
         $rekomendasi->save();
 
         $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'Belum Selesai';
+        $rekomendasi->keterangan = 'Tidak Memenuhi';
         $rekomendasi->save();
 
     }

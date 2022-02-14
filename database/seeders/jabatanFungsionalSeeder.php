@@ -14,17 +14,20 @@ class jabatanFungsionalSeeder extends Seeder
     public function run()
     {
         $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'A.jabatan fungsional 1';
+        $jabFung->jenis = 'Asisten Ahli';
         $jabFung->save();
 
         $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'B.jabatan fungsional 2';
+        $jabFung->jenis = 'Lektor';
         $jabFung->save();
 
         $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'C.jabatan fungsional 3';
+        $jabFung->jenis = 'Lektor Kepala';
         $jabFung->save();
-        
+
+        $jabFung = new \App\Models\Jabatanfungsional;
+        $jabFung->jenis = 'Profesor';
+        $jabFung->save(); 
 
     }
 }

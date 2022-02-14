@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUploadgambarsTable extends Migration
+class CreatePeriodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateUploadgambarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('uploadgambar', function (Blueprint $table) {
+        Schema::create('periode', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('gambar');
+            $table->string('tahunAjaran');
+            $table->string('semester');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateUploadgambarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uploadgambar');
+        Schema::dropIfExists('periode');
     }
 }

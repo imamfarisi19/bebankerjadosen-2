@@ -35,11 +35,6 @@ class Dosen extends Model
         return $this->hasMany(User::class);
     }
 
-    public function kegiatan()
-    {
-        return $this->belongsToMany(Kegiatan::class);
-    }
-
     public function pengajaran()
     {
         return $this->hasMany(Kegiatan::class);

@@ -123,9 +123,9 @@
                             </div>
                             <div class="form-group invisible">
                             <label for="Dosen">level</label>
-                            <select class="form-control seelct2" style="width: 10%" name="level" id="level">
-                                <option value="User">User</option>
-                            </select>
+                                <select class="form-control seelct2" style="width: 10%" name="level" id="level">
+                                    <option value="User">User</option>
+                                </select>
                             <input type="text" value="1" name="dosen_id" id="dosen_id">
                             <input type="text" value="0" name="admin_id" id="admin_id">
                             </div>

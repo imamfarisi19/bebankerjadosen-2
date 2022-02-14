@@ -16,13 +16,12 @@ class CreatePengajaransTable extends Migration
         Schema::create('pengajaran', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('dosen_id');
+            $table->bigInteger('periode_id');
             $table->bigInteger('kegiatan_id');
             $table->bigInteger('masaPenugasan_id');
             $table->bigInteger('rekomendasi_id');
-            $table->string('buktiPenugasan');
-            $table->string('sksBK'); 
-            $table->string('buktiDokumen');
-            $table->string('sksBD');
+            $table->bigInteger('bebanKerja_id');
+            $table->bigInteger('kinerja_id');
             $table->timestamps();
         });
     }
