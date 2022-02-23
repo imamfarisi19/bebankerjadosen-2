@@ -28,40 +28,41 @@ class kegiatanSeeder extends Seeder
         $kegiatan->jenis = 'C. Membimbing KKN, PKN, Praktik Kerja Lapangan';
         $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'D. Membimbing tugas akhir penelitian mahasiswa
-                              termasuk membimbing, pembuatan laporan hasil
-                              penelitian tugas akhir';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'D. Membimbing tugas akhir penelitian mahasiswa
+                               termasuk membimbing, pembuatan laporan hasil
+                               penelitian tugas akhir';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'E. Penguji pada ujian akhir';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'E. Penguji pada ujian akhir';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'F. Membina kegiatan mahasiswa di bidang akademik
-                              dan kemahasiswaan';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'F. Membina kegiatan mahasiswa di bidang akademik
+                               dan kemahasiswaan';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'G. Mengembangkan program perkuliahan';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'G. Mengembangkan program perkuliahan';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'H. Mengembangkan bahan pengajaran';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'H. Mengembangkan bahan pengajaran';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'I. Menyampaikan orasi ilmiah';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'I. Menyampaikan orasi ilmiah';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'J. Membina dosen yang lebih rendah jabatannya';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'J. Membina dosen yang lebih rendah jabatannya';
+        $kegiatan->save();
 
-        $jabFung = new \App\Models\Jabatanfungsional;
-        $jabFung->jenis = 'K. Melaksanakan kegiatan datasharing dan 
-                              pencangkokan dosen';
-        $jabFung->save();
+        $kegiatan = new \App\Models\Kegiatan;
+        $kegiatan->jenis = 'K. Melaksanakan kegiatan datasharing dan 
+                               pencangkokan dosen';
+        $kegiatan->save();
+        
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePeriodesTable extends Migration
+class CreateTahunajaransTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreatePeriodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('periode', function (Blueprint $table) {
+        Schema::create('tahunajaran', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('dosen_id');
-            $table->bigInteger('tahunAjaran_id');
-            $table->bigInteger('semester_id');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreatePeriodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periode');
+        Schema::dropIfExists('tahunajaran');
     }
 }

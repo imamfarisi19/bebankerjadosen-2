@@ -18,11 +18,14 @@ class DatabaseSeeder extends Seeder
         $this->call(usersSeeder::class);
         $this->call(jabatanFungsionalSeeder::class);
         $this->call(kegiatanSeeder::class);
-        $this->call(bebanKerjaSeeder::class);
         $this->call(masaPenugasanSeeder::class);
-        $this->call(kinerjaSeeder::class);
         $this->call(rekomendasiSeeder::class);
         $this->call(dosenSeeder::class);
         $this->call(adminSeeder::class);
+        $this->call(semesterSeeder::class);
+        $this->call(tahunAjaranSeeder::class);
+        $this->call(PeriodeSeeder::class);
+        $this->call(asesorSeeder::class);
+        $this->call(namaSeeder::class);
     }
 }

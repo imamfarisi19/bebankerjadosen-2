@@ -16,7 +16,7 @@ class CreateBebankerjasTable extends Migration
         Schema::create('bebankerja', function (Blueprint $table) {
             $table->id();
             $table->string('buktiPenugasan');
-            $table->bigInteger('sks');
+            $table->decimal('sks');
             $table->timestamps();
         });
     }

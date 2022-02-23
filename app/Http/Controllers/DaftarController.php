@@ -20,7 +20,7 @@ class DaftarController extends Controller
     public function index()
     {
         $dtDaftar = User::with('dosen', 'admin')->paginate(100);
-        $dtGambar = Uploadgambar::all();
+        
 
         $adminGambar = array();
         $dosenGambar = array();
@@ -30,7 +30,7 @@ class DaftarController extends Controller
             $dosenGambar[] = isset($item->dosen['gambar']) ? $item->dosen['gambar'] : '';            
         }
         
-        return view('AdminRegistration.daftar', compact('dtDaftar', 'dtGambar', 'adminGambar', 'dosenGambar'));
+        return view('AdminRegistration.daftar', compact('dtDaftar', 'adminGambar', 'dosenGambar'));
         // $data1 = isset($dtDaftar->dosen['id']) ? $dtDaftar->dosen['id'] : '';
     }
 

@@ -48,12 +48,12 @@
                     <div class="card-body">
                         <table class="table">
                             @foreach($dtAdmin as $item)
+                            @if(auth()->user()->admin_id==$item->id)
                             <tr>
                                 <th width="2%" height="2%" class="">Foto</th>
                                 <td width="10%" class="text-left"><img src="{{ asset('/img/'.$item->gambar)}}" height="20%" width="20%" alt="$adminGambar" srcset=""></td>
                                 <td width="10%" class="" style="border:0ch"></td>
                             </tr>
-                            @if(auth()->user()->admin_id==$item->id)
                             <tr>
                                 <th>Nama</th>
                                 <td>{{$item->namaDepan}} {{$item->namaBelakang}}</td>

@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('simpan-pengajaran')}}" method="post">
+                        <form action="{{route('simpan-pengajaran-tahun')}}" method="post">
                             {{ csrf_field() }}
                             @if (auth()->user()->level=="User")
                             <div class="form-group">
@@ -59,8 +59,8 @@
                                 <input type="file" id="buktiPenugasan" name="buktiPenugasan" class="form-control" placeholder="Bukti Penugasan">
                             </div>
                             <div class="form-group">
-                            <label for="sksBK">SKS Beban Kerja</label>
-                                <input type="text" id="sksBK" name="sksBK" class="form-control" placeholder="SKS Beban Kerja">
+                            <label for="sksBP">SKS Bukti Penugasan</label>
+                                <input type="text" id="sksBP" name="sksBP" class="form-control" placeholder="SKS Bukti Penugasan">
                             </div>
                             <div class="form-group">
                             <label for="masaPenugasan_id">Masa Penugasan</label>
@@ -78,8 +78,17 @@
                             <div class="form-group">
                             <label for="sksBD">SKS Bukti Dokumen</label>
                                 <input type="text" id="sksBD" name="sksBD" class="form-control" placeholder="sks Bukti Dokumen">
+                            </div>                      
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Simpan Data</button>
                             </div>
                             <div class="form-group">
+                                <input type="hidden" name="periode_id" id="periode_id" value="{{$dtPeriode}}">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="dosen_id" id="dosen_id"  value="{{auth()->user()->dosen_id}}">
+                            </div>
+                            <!-- <div class="form-group">
                             <label for="rekomendasi_id">Rekomendasi</label>
                                 <select class="form-control select" style="width: 100%" name="rekomendasi_id" id="rekomendasi_id">
                                     <option disabled value>Rekomendasi</option>
@@ -87,16 +96,7 @@
                                     <option value="{{$item->id}}">{{$item->keterangan}}</option>
                                     @endforeach
                                 </select>
-                            </div>                         
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success">Simpan Data</button>
-                            </div>
-                            <div class="form-group invisible">
-                            <label for="Dosen">Nama</label>
-                            <select class="form-control select" style="width: 10%" name="dosen_id" id="dosen_id">
-                                    <option value="{{auth()->user()->dosen_id}}">{{auth()->user()->name}}</option>
-                                </select>
-                            </div>
+                            </div> -->
                             @endif
                         </form>
                     </div>

@@ -35,8 +35,8 @@ class Dosen extends Model
         return $this->hasMany(User::class);
     }
 
-    public function pengajaran()
+    public function periode()
     {
-        return $this->hasMany(Kegiatan::class);
+        return $this->hasMany(Periode::class);
     }
 }

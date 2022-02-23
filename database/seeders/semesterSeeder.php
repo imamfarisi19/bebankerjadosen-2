@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class rekomendasiSeeder extends Seeder
+class semesterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,12 +13,12 @@ class rekomendasiSeeder extends Seeder
      */
     public function run()
     {
-        $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'Memenuhi';
+        $rekomendasi = new \App\Models\Semester;
+        $rekomendasi->keterangan = 'Ganjil';
         $rekomendasi->save();
 
-        $rekomendasi = new \App\Models\Rekomendasi;
-        $rekomendasi->keterangan = 'Belum Memenuhi';
+        $rekomendasi = new \App\Models\Semester;
+        $rekomendasi->keterangan = 'Genap';
         $rekomendasi->save();
     }
 }

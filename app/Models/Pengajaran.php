@@ -11,7 +11,6 @@ class Pengajaran extends Model
     protected $primaryKey = "id";
     protected $fillable = [
                             'id',
-                            'dosen_id',
                             'periode_id',
                             'kegiatan_id',
                             'masaPenugasan_id',
@@ -19,11 +18,6 @@ class Pengajaran extends Model
                             'bebanKerja_id',
                             'kinerja_id'
                             ];
-
-    public function dosen()
-    {
-        return $this->belongsTo(Dosen::class, 'dosen_id', 'id');
-    }
 
     public function periode()
     {
@@ -40,11 +34,6 @@ class Pengajaran extends Model
         return $this->belongsTo(Masapenugasan::class, 'masaPenugasan_id', 'id');
     }
 
-    public function rekomendasi()
-    {
-        return $this->belongsTo(Rekomendasi::class, 'rekomendasi_id', 'id');
-    }
-
     public function bebanKerja()
     {
         return $this->belongsTo(Bebankerja::class, 'bebanKerja_id', 'id');
@@ -53,5 +42,10 @@ class Pengajaran extends Model
     public function kinerja()
     {
         return $this->belongsTo(Kinerja::class, 'kinerja_id', 'id');
+    }
+
+    public function rekomendasi()
+    {
+        return $this->belongsTo(Rekomendasi::class, 'rekomendasi_id', 'id');
     }
 }

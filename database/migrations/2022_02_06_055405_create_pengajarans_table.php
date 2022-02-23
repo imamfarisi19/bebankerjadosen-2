@@ -15,7 +15,6 @@ class CreatePengajaransTable extends Migration
     {
         Schema::create('pengajaran', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('dosen_id');
             $table->bigInteger('periode_id');
             $table->bigInteger('kegiatan_id');
             $table->bigInteger('masaPenugasan_id');

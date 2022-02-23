@@ -38,7 +38,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:Admin']], function () {
     route::get('/edit-user-daftar/{id}', 'DaftarController@editUser')->name('edit-user-daftar');
     route::post('/update-user-daftar/{id}', 'DaftarController@updateUser')->name('update-user-daftar');
     route::get('/delete-user-daftar/{id}', 'DaftarController@destroy')->name('delete-user-daftar');
-    
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:Admin,User']], function(){
@@ -53,11 +52,27 @@ Route::group(['middleware' => ['auth', 'ceklevel:Admin,User']], function(){
     route::post('/update-biodata/{id}', 'BiodataController@update')->name('update-biodata');
     route::get('/delete-biodata/{id}', 'BiodataController@destroy')->name('delete-biodata');
 
-    route::get('/create-pengajaran', 'PengajaranController@create')->name('create-pengajaran');
+    //route::get('/create-pengajaran', 'PengajaranController@create')->name('create-pengajaran');
     route::post('/simpan-pengajaran', 'PengajaranController@store')->name('simpan-pengajaran');
     route::get('/edit-pengajaran/{id}', 'PengajaranController@edit')->name('edit-pengajaran');
     route::post('/update-pengajaran/{id}', 'PengajaranController@update')->name('update-pengajaran');
     route::get('/delete-pengajaran/{id}', 'PengajaranController@destroy')->name('delete-pengajaran');
+
+    route::get('/tahun-pengajaran', 'PengajaranController@tahun')->name('tahun-pengajaran');
+    route::post('/tahun-pengajaran-tampil', 'PengajaranController@tampilTahun')->name('tahun-pengajaran-tampil');
+    route::get('/create-pengajaran-tahun', 'PengajaranController@createTahun')->name('create-pengajaran-tahun');
+    route::post('/simpan-pengajaran-tahun', 'PengajaranController@storeTahun')->name('simpan-pengajaran-tahun');
+    route::get('/edit-pengajaran-tahun/{id}', 'PengajaranController@editTahun')->name('edit-pengajaran-tahun');
+    route::post('/update-pengajaran-tahun/{id}', 'PengajaranController@updateTahun')->name('update-pengajaran-tahun');
+    route::get('/delete-pengajaran-tahun/{id}', 'PengajaranController@destroyTahun')->name('delete-pengajaran-tahun');
+
+    route::get('/tahun-asesor', 'PengajaranController@tahunAsesor')->name('tahun-asesor');
+    route::post('/tahun-tampil-asesor', 'PengajaranController@tampilTahunAsesor')->name('tahun-tampil-asesor');
+    route::get('/create-tahun-asesor', 'PengajaranController@createTahunAsesor')->name('create-tahun-asesor');
+    route::post('/simpan-tahun-asesor', 'PengajaranController@storeTahunAsesor')->name('simpan-tahun-asesor');
+    route::get('/edit-tahun-asesor/{id}', 'PengajaranController@editTahunAsesor')->name('edit-tahun-asesor');
+    route::post('/update-tahun-asesor/{id}', 'PengajaranController@updateTahunAsesor')->name('update-tahun-asesor');
+    route::get('/delete-tahun-asesor/{id}', 'PengajaranController@destroyTahunAsesor')->name('delete-tahun-asesor');
 
     route::get('/create-penunjang', 'PenunjangController@create')->name('create-penunjang');
     route::post('/simpan-penunjang', 'PenunjangController@store')->name('simpan-penunjang');

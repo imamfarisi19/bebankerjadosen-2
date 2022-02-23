@@ -39,12 +39,56 @@
                 <div class="card card-info card-outline">
                     <div class="card-header">
                         <div class="card-tools">
-                            <a href="{{ route('create-pengajaran') }}" class="btn btn-success">Tambah Data <i class="fas fa-plus-square"></i></a>
+                            <form action="{{route('create-pengajaran-tahun')}}" method="get">
+                            <div class="form-group">
+                            @foreach($dtPengajaran as $item)
+                                @foreach ($item as $o)
+                                        @if($o->periode->id != null)
+                                            @php
+                                                $enkripsiData = Crypt::encryptString($o->periode->id)
+                                            @endphp
+                                            <input type="hidden" name="periode_id" id="periode_id" value="{{$enkripsiData}}">
+                                        @endif
+                                @endforeach
+                            @endforeach
+                            @foreach($a as $item)
+                                @php
+                                    $enkripsiData = Crypt::encryptString($item->id)
+                                @endphp
+                                <input type="hidden" name="periode_id" id="periode_id" value="{{$enkripsiData}}">
+                            @endforeach
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success"><i class="fas fa-plus-square"></i> Tambah Data </button>
+                            </div>
+                            </form>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Total SKS</th>
+                                <th></th>
+                                <th>Total SKS</th>
+                                <th>Total Rekomendasi</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{$sksBK}}</td>
+                                <td></td>
+                                <td>{{$sksBD}}</td>
+                                <td>{{$rekomendasi}}</td>
+                                <td></td>
+                            </tr>
                             <tr>
                                 <th>#</th>
                                 <th>Kegiatan</th>
@@ -57,26 +101,30 @@
                                 <th>Aksi</th>
                             </tr>
                             @foreach ($dtPengajaran as $item)
+                                @foreach ($item as $o)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$item->kegiatan->jenis}}</td>
-                                <td>{{$item->buktiPenugasan}}</td>
-                                <td>{{$item->masaPenugasan->keterangan}}</td>                                
-                                <td>{{$item->sksBK}}</td>
-                                <td>{{$item->buktiDokumen}}</td>
-                                <td>{{$item->sksBD}}</td>
-                                <td>{{$item->rekomendasi->keterangan}}</td>
+                                <td>{{$o->kegiatan->jenis}}</td>
+                                <td>{{$o->bebanKerja['buktiPenugasan']}}</td>
+                                <td>{{$o->masaPenugasan->keterangan}}</td>
+                                <td>{{$o->bebanKerja['sks']}}</td>
+                                <td>{{$o->kinerja['buktiDokumen']}}</td>
+                                <td>{{$o->kinerja['sks']}}</td>
+                                <td>{{$o->rekomendasi->keterangan}}</td>
                                 <td>
-                                    <a href="{{ url('edit-pengajaran', $item->id) }}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ url('edit-pengajaran-tahun', $o->id) }}"><i class="fas fa-edit"></i></a>
                                     |
-                                    <a href="{{ url('delete-pengajaran', $item->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+                                    <a href="{{ url('delete-pengajaran-tahun', $o->id) }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
                                 </td>
                             </tr>
+                                @endforeach
                             @endforeach
                         </table>
                     </div>
                     <div class="card-footer">
-                        {{ $dtPengajaran->links() }}
+                        @foreach($dtPengajaran as $item)
+                                {{ $item->links() }}
+                        @endforeach
                     </div>
                 </div>
             </div>

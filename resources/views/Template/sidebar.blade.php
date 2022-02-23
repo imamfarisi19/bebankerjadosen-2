@@ -50,7 +50,7 @@
                 @endif
                 @if (auth()->user()->level=="User")
                 <li class="nav-item">
-                    <a href="pengajaran" class="nav-link">
+                    <a href="tahun-pengajaran" class="nav-link">
                         <i class="nav-icon fa fa-university"></i>
                         <p>
                             Pengajaran
@@ -81,15 +81,15 @@
                         </p>
                     </a>
                 </li>
-                @endif
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="tahun-asesor" class="nav-link">
                     <i class="nav-icon fas fa-check-circle"></i>
                         <p>
                             Asesor
                         </p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{route('logout')}}" class="nav-link">
                         <i class="nav-icon fa fa-times"></i>
